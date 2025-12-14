@@ -9,8 +9,9 @@ import { join } from "path";
 // app.js
 
 const __filename = fileURLToPath(import.meta.url);
-expressApp.set("views", path.join(path.dirname(__filename), "views"));
+expressApp.set("views", join(path.dirname(__filename), "../views"));
 expressApp.set("view engine", "ejs");
+
 /*
 import { App } from "oktokit";
 
@@ -23,7 +24,6 @@ const octokit = await app.getInstallationOctokit(process.env.INSTALLATION_ID)
 
 */
 
-expressApp.get("/", (req,res) => res.send("Proof Of Concept app for github login"))
 const port = process.env.PORT || 3000;
 
 const server = expressApp.listen(port, () => {

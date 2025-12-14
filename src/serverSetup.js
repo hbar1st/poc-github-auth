@@ -25,4 +25,18 @@ expressApp.use(
   })
 );
 
+
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
+
+expressApp.get("/", (req, res) => {
+  res.render("index", { message: "Proof Of Concept app for github login", CLIENT_ID });
+});
+
+expressApp.post("/github", (req, res) => {
+  const code = req.params.code;
+  
+  render = `Successfully authorized! Got code ${code}.`;
+})
+
 export { expressApp }
